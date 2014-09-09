@@ -27,7 +27,7 @@ http://www.gnu.org/licenses/gpl.html
 		
 		//get the starting position of each element to have parallax applied to it		
 		$this.each(function(){
-		    firstTop = $this.position().top;
+		    firstTop = $this.offset().top;
 		});
 
 		if (outerHeight) {
@@ -51,15 +51,15 @@ http://www.gnu.org/licenses/gpl.html
 
 			$this.each(function(){
 				var $element = $(this);
-				var top = $element.position().top;
+				var top = $element.offset().top;
 				var height = getHeight($element);
 
 				// Check if totally above or totally below viewport
 				if (top + height < pos || top > pos + windowHeight) {
 					return;
 				}
-				$this.css('position', 'relative');
-				$this.css('top', Math.round((firstTop - pos) * speedFactor) + "px");
+
+				$this.css('backgroundPosition', xpos + " " + Math.round((firstTop - pos) * speedFactor) + "px");
 			});
 		}		
 

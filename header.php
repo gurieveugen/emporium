@@ -54,14 +54,14 @@
 	</head>
 	<body <?php body_class(); ?>>
 	  <div class="global-box" style="padding: 0;">
-		<header id='header-container' class="position-fixed" style="position: relative;">
+		<header id='header-container' class="position-fixed">
 			<div class="TopHolder">
 				<?php showTopCart()	?>
 			</div>
 			<div id="headerwrap" >
 				<div id="header">
-					<div id="logo">
-						<?php $logo = $data['logo']; ?> <a href="<?php echo home_url(); ?>"><img src="<?php if ($logo != '') {?><?php echo $logo; ?><?php } else { ?><?php get_template_directory_uri(); ?>/images/logo.png<?php } ?>" alt="<?php bloginfo('name'); ?> - <?php bloginfo('description') ?>" /></a>
+					<div id="logo" style="width: 300px; overflow: hidden;">
+						<?php $logo = $data['logo']; ?> <a href="<?php echo home_url(); ?>" style="position: relative; display: block; top: 0px;"><img src="<?php if ($logo != '') {?><?php echo $logo; ?><?php } else { ?><?php get_template_directory_uri(); ?>/images/logo.png<?php } ?>" alt="<?php bloginfo('name'); ?> - <?php bloginfo('description') ?>" /></a>
 					</div>
 					<div id="responsive-menu">
 						<a href="#">MENU</a>

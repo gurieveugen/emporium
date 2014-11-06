@@ -116,10 +116,11 @@ if (function_exists('icl_object_id')) {
 		global $woocommerce, $data, $sitepress;
 		?>
 			<div class="top-nav">
-				<div class="socialTop">
+				<?php /*<div class="socialTop">
 					<?php socialLinkTop() ?><a href="https://www.google.com/+Dynamicdiscdesigns?rel=author" target="_blank" class="googlelink top"></a>
 					<?php if (function_exists('icl_object_id')) { echo languages_list_footer(); } ?>
-				</div>
+				</div> */ ?>
+
 				<?php	if (function_exists( 'is_woocommerce' ) ) : ?>
 				<div class="notification">
 				<div class="cartWrapper">

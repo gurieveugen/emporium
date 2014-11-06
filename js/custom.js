@@ -296,7 +296,6 @@ jQuery(document).ready(function($) {
 			
 			// Ajax action
 			$.post( woocommerce_params.ajax_url, data, function(response) {
-				
                 if ( ! response )
                     return;
                     
@@ -307,7 +306,7 @@ jQuery(document).ready(function($) {
 				$thisbutton.removeClass('loading');
 
 				// Get response
-				data = $.parseJSON( response );
+				// data = $.parseJSON( response );
 				
 				if (data.error && data.product_url) {
 					window.location = data.product_url;
@@ -357,20 +356,20 @@ jQuery(document).ready(function($) {
 
 				// Cart widget load
 				if ($('.widget_shopping_cart_top').size()>0) {
-					$('.widget_shopping_cart_top:eq(0)').load( this_page + ' .widget_shopping_cart_top:eq(0) > *', function() {
+					// $('.widget_shopping_cart_top:eq(0)').load( this_page + ' .widget_shopping_cart_top:eq(0) > *', function() {
 
-						// Replace fragments
-						if (fragments) {
-							$.each(fragments, function(key, value) {
-								$(key).replaceWith(value);
-							});
-						}
+					// 	// Replace fragments
+					// 	if (fragments) {
+					// 		$.each(fragments, function(key, value) {
+					// 			$(key).replaceWith(value);
+					// 		});
+					// 	}
 						
-						// Unblock
-						$('.widget_shopping_cart_top, .updating').stop(true).css('opacity', '1').unblock();
+					// 	// Unblock
+					// 	$('.widget_shopping_cart_top, .updating').stop(true).css('opacity', '1').unblock();
 						
-						$('body').trigger('cart_widget_refreshed');
-					} );
+					// 	$('body').trigger('cart_widget_refreshed');
+					// } );
 				} else {
 					// Replace fragments
 					if (fragments) {
@@ -398,14 +397,14 @@ jQuery(document).ready(function($) {
 				});
 
 				// Cart page elements
-				$('.widget_shopping_cart_top').load( this_page + ' .widget_shopping_cart_top:eq(0) > *', function() {
+				// $('.widget_shopping_cart_top').load( this_page + ' .widget_shopping_cart_top:eq(0) > *', function() {
 					
-					$("div.quantity:not(.buttons_added), td.quantity:not(.buttons_added)").addClass('buttons_added').append('<input type="button" value="+" id="add1" class="plus" />').prepend('<input type="button" value="-" id="minus1" class="minus" />');
+				// 	$("div.quantity:not(.buttons_added), td.quantity:not(.buttons_added)").addClass('buttons_added').append('<input type="button" value="+" id="add1" class="plus" />').prepend('<input type="button" value="-" id="minus1" class="minus" />');
 					
-					$('.widget_shopping_cart_top').stop(true).css('opacity', '1').unblock();
+				// 	$('.widget_shopping_cart_top').stop(true).css('opacity', '1').unblock();
 					
-					$('body').trigger('cart_page_refreshed');
-				});
+				// 	$('body').trigger('cart_page_refreshed');
+				// });
 				
 				$('.cart_totals.top').load( this_page + ' .cart_totals.top:eq(0) > *', function() {
 					$('.cart_totals.top').stop(true).css('opacity', '1').unblock();
@@ -413,18 +412,45 @@ jQuery(document).ready(function($) {
 				
 				// Trigger event so themes can refresh other areas
 				$('body').trigger('added_to_cart');
+
+
+				if(typeof(response.fragments['a.cart-contents']) != 'undefined')
+				{
+					$('a.cart-contents').replaceWith(response.fragments['a.cart-contents']);
+				}
+
+				if(typeof(response.fragments['div.widget_shopping_cart_content']) != 'undefined')
+				{
+					var list = $(response.fragments['div.widget_shopping_cart_content']).find('li');
+					var total = $(response.fragments['div.widget_shopping_cart_content']).find('.total');
+					var buttons = $(response.fragments['div.widget_shopping_cart_content']).find('.buttons');
+
+					$('.widget_shopping_cart_top .cartTopDetails li').each(function(){
+						$(this).remove();
+					});
+					$('.widget_shopping_cart_top .cartTopDetails .cart_list').prepend(list);
+					$('.widget_shopping_cart_top .cartTopDetails .cart_list .total').remove();
+					$('.widget_shopping_cart_top .cartTopDetails .cart_list .buttons').remove();
+					$('.widget_shopping_cart_top .cartTopDetails .cart_list').append(total);
+					$('.widget_shopping_cart_top .cartTopDetails .cart_list').append(buttons);
+					$('.widget_shopping_cart_top, .updating').stop(true).css('opacity', '1').unblock();
+					$('.widget_shopping_cart_top').stop(true).css('opacity', '1').unblock();
+				}
 		
 			});
+
+			
 			
 			return false;
 		
 		} else {
 			return true;
 		}
-		
 	});
 
 });
+
+
 
 jQuery(document).ready(function(){	
 	if (jQuery('.sub-nav').length > 0) {

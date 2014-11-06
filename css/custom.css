@@ -1,0 +1,111 @@
+/* custom */
+#headerwrap {
+	border-bottom: 5px solid #F7931E;
+	padding-bottom: 5px;
+	padding-top: 10px;
+}
+#headerwrap.css-header-fixed {
+	background-color: rgba(30, 30, 32, 0.9)!important;
+}
+.TopHolder {
+	border: none;
+	background-color: transparent;
+	border-top: 1px solid;
+}
+.top-nav ul {
+	float: none;
+	margin-left : 0px;
+}
+.menu, .menu * {
+	margin: 0px;
+}
+.menu li {
+	margin-left: 26px;
+}
+.menu li:first-child {
+	margin-left: 0px !important;
+}
+#header ul.menu > li > a {
+	height: 24px;
+}
+#logo {
+	width: 300px;
+	overflow: hidden;
+	margin: 0px auto;
+	padding: 13px 0px;
+	float: none !important;
+}
+#logo-mini {
+	float: left;
+	width: 75px;
+}
+.cartWrapper {
+	padding: 0px 5px 0px 5px !important;
+	margin-top: 3px;
+}
+.cartTopDetails {
+	background: #FFF;
+}
+.menu-new {
+	width: 885px;
+	float: left;
+}
+.menu-new .menu li {
+	margin-left: 15px;
+}
+.menu-new .menu li ul.sub-menu li {
+	margin-left: 0px;
+}
+.menu-new .top-nav {
+	width: 885px;
+}
+#slider-wrapper {
+	padding-top: 0px;
+}
+#slider-wrapper-iframe, #slider-wrapper {
+	background: transparent !important;
+}
+.anythingSlider iframe{
+	margin: 30px auto;
+}
+.textSlide p{
+	color: #000;
+}
+#mainwrap {
+	top: 30px;
+}
+.homewrap #main {
+	margin-top: 0px;
+}
+.has-sub-menu {
+	background: url(../images/down-arrow.png) bottom right no-repeat;
+	padding-right: 16px;
+}
+.footer_widget1 {
+	width: 45% !important;
+}
+#footer .widget p {
+	font-size: 13px;
+	color: #aaa;
+}
+#footerbwrap {
+	height: auto;
+}
+#footerb .footernav ul {
+	text-align: center;
+	margin: 10px auto 0px;
+}
+#footerb .footernav ul li {
+	float: none !important;
+	display: inline-block;
+}
+#footerb .footernav, #footerb .copyright {
+	float: none;
+	width: 100%;
+	display: inline-block;
+	font-size: 12px !important;
+}
+#footerb .copyright {
+	text-align: center;
+	padding: 0px 0 10px;
+}
